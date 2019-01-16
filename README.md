@@ -1,7 +1,10 @@
-Truth Trees
-===========
+# Handy Logic Doodahs-Truth Trees
+## Authors
+2016:
+Matt Peveler
 
-This is a flask app (with a python module backing it) that can be used to solve generate a truth tree for any given number of formulas and one goal.
+## About
+This is a flask app (with a python module backing it) that can be used to solve generate a truth tree for any given number of formulas and one goal. This is part of the handy logic doodahs series of Automated Theorem Provers.
 
 ![Flask App](https://raw.githubusercontent.com/MasterOdin/TruthTrees/master/static/screenshot.png)
 
