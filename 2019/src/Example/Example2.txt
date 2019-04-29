@@ -1,0 +1,13 @@
+add_root_formula(if(R, R))
+add_root_formula(not(R))
+branch 1
+go_to 2
+add_formula(not(R))
+mark_parent 3 1
+go_to 3
+add_formula R
+mark_parent 4 1
+checkmark 1
+close 4 2
+go_to 2
+mark_open

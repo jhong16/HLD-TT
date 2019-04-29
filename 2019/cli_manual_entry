@@ -1,0 +1,49 @@
+$ Welcome to the truth tree project
+
+tree/ $ make_root
+Creating Root
+type \stop to stop adding statements
+
+tree/ $ Statement 1 -> A
+tree/ $ Statement 2 -> iff(A, B)
+tree/ $ Statement 3 -> \stop
+Done. Going to root
+tree/root/ $ \print
+(representation of tree)
+tree/root/ $ cd ../
+tree/ $ cd root
+tree/root/ $ 
+tree/root/ $ \branch
+Creating branch based on what?
+
+1: A
+2: iff(A, B)
+
+tree/root/ $ Branching on -> 2
+Creating branches 2.1 and 2.2
+tree/root/2.1/ $ cd ../
+tree/root/ $ cd 2.2
+tree/root/2.2/ $ make_statements
+Adding statements
+type \stop to stop adding statements
+tree/root/2.2/ $ -> A
+tree/root/2.2/ $ -> B
+tree/root/2.2/ $ -> \stop
+tree/root/2.2/ $ \open
+tree/root/2.2/ marked as open
+tree/root/2.2/ (open) $ cd ../
+tree/root/ $ cd 2.1/
+tree/root/2.1/ $ make_statements
+Adding statements
+type \stop to stop adding statements
+tree/root/2.1/ $ -> ~A
+tree/root/2.1/ $ -> ~B
+tree/root/2.1/ $ -> \stop
+tree/root/2.1/ $ \close
+tree/root/2.1/ marked as open
+tree/root/2.1/ (closed) $ verify
+Success!
+
+
+
+

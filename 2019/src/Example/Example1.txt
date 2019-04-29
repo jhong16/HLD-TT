@@ -1,0 +1,16 @@
+add_root_formula(if(K, not(K)))
+add_root_formula(not(not(K)))
+add_formula(K)
+mark_parent 3 2
+checkmark 2
+branch 1
+go_to 2
+add_formula(not(K))
+mark_parent 4 1
+close 4 3
+go_to 3
+add_formula(not(K))
+mark_parent 5 1
+close 5 3
+checkmark 1
+check_all_closed
