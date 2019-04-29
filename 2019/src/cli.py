@@ -9,8 +9,8 @@ from src import treeformulas
 
 
 class TreeShell(cmd.Cmd):
-    def __init__(self, **kwargs):
-        super().__init__(self, **kwargs)
+    def __init__(self, completekey='tab', stdin=None, stdout=None):
+        super().__init__(completekey=completekey, stdin=stdin, stdout=stdout)
         self.intro = "Welcome to the tree shell.\nType help or ? to list commands.\n"
         self.prompt = "~/ $ "
         self.tree = truthtrees.TruthTree()
