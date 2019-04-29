@@ -9,16 +9,22 @@ Front-end: HTML, Javascript
 
 # How to run server:
  * Set up Python path
-   * ```export PYTHONPATH=${PYTHONPATH}:<your clone path>/truth_tree```
+   * Linux: ```export PYTHONPATH=${PYTHONPATH}:<your clone path>/truth_tree```
  * Run web_server.py in the src folder and go to the ip address
    * ```python3.6 web_server.py```
    * Development Mode (Auto-Template Refresh) ```FLASK_APP=web_server_test.py FLASK_DEBUG=1 python3.6 -m flask run```
  * Insert commands into Command to create the tree
    * Try typing ```help```
 
+# How to run cli:
+ * Set up Python path
+   * Linux: ```export PYTHONPATH=${PYTHONPATH}:<your clone path>/truth_tree```
+ * Run cli.py in the src folder
+   * ```python3.6 cli.py```
+
 # How to run tests:
  * Set up Python path
-   * ```export PYTHONPATH=${PYTHONPATH}:<your clone path>/truth_tree```
+   * Linux: ```export PYTHONPATH=${PYTHONPATH}:<your clone path>/truth_tree```
  * Move into tests folder
  * Run a tests file
    * Example: ```python3.6 tests.py```
