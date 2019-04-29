@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <!-- Tree Styling and General CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <!-- W3 Styling -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <body>
+        <div id="top" class="w3-container w3-indigo" style="height: 25vh;">
+            <div class="w3-row" style="height: 100%">
+                <div align="center" class="w3-half" style="height: 100%">
+                    <div class="w3-card w3-round-large w3-purple" style="height: 50px; width: 98%">
+                        <h1 align="center" class="w3-text-white" style="text-shadow:1px 1px 0 #444">Command Log</h1>
+                    </div>
+                    <div id="log" class="w3-card w3-round-large w3-purple" style="width: 98%; overflow-y: scroll; height: -webkit-calc(90% - 50px); height: -moz-calc(90% - 50px); height: calc(90% - 50px);">
+                        <ul class="w3-ul w3-card-4">
+                            {% for item in log %}
+                                <li class="w3-padding-small"><code>{{ item }}</code></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div align="center" class="w3-half" style="height: 100%">
+                    <div class="w3-card w3-round-large w3-purple" style="height: 50px; width: 98%">
+                        <h1 align="center" class="w3-text-white" style="text-shadow:1px 1px 0 #444">Valid Command History</h1>
+                    </div>
+                    <div id="history" class="w3-card w3-round-large w3-purple" style="width: 98%; overflow-y: scroll; height: -webkit-calc(90% - 50px); height: -moz-calc(90% - 50px); height: calc(90% - 50px);">
+                        <ul class="w3-ul w3-card-4">
+                            {% for item in command_history %}
+                                <li class="w3-padding-small"><code>{{ item }}</code></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- This is where the Alert of Verification Occurs -->
+        {{verify_message }}
+        <div align="center" id="middle" class="w3-container w3-indigo" style="height: 70vh;">
+            <div class="w3-card w3-round-large w3-blue" style="height: 50px; width: 99%">
+                <h1 align="center" class="w3-text-white" style="text-shadow:1px 1px 0 #444">Tree</h1>
+                <span>Yellow Highlight = Current Node, Blue Text = Validated Formula</span>
+            </div> 
+            <div class="w3-container w3-card w3-round-large w3-blue" style="width: 99%; overflow: scroll;  height: -webkit-calc(95% - 50px); height: -moz-calc(95% - 50px); height: calc(95% - 50px);" >
+                <div class="tree"> 
+                   <ul>
+                        <!-- Rendered Tree is placed here -->
+                        {{ tree }}
+                    </ul> 
+                </div>
+            </div>
+        </div>
+        <div id="bottom" class="w3-display-container w3-card w3-green" style="height: 5vh;">
+            <div class="w3row w3-display-middle">
+                <div class="w3-cell">
+                    <div class="w3-large w3-red">{{ message }}</div> 
+                </div>
+                <div class="w3-cell">
+                    <form method="POST">
+                        <input class="w3-container w3-large" name="text" autofocus autocomplete placeholder="Command Line">
+                    </form>
+                </div>
+                <div class="w3-cell">
+                    <form method="POST">
+                        <input name="reset" class="w3-button w3-block w3-round w3-teal w3-hover-white" type="submit" value="Reset">
+                    </form>
+                </div>
+                <div class="w3-cell">
+                    <form method="POST">
+                        <input name="verify" class="w3-button w3-block w3-round w3-teal w3-hover-white" type="submit" value="Verify">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+    <!-- Script to keep logs scrolled down -->
+    <script type="text/javascript">
+        var objDiv = document.getElementById("log");
+        objDiv.scrollTop = objDiv.scrollHeight;
+        var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+    </script>
+    <!-- Imported scripts from 2016 code to maintain legacy functionality -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        /* a hack for very wide trees */
+        $(document).ready(function() {
+            var tree = $('.tree');
+            var initialHeight = $(tree.find('li')[0]).height();
+            var initialWidth = tree.width();
+            for (var i = 1000; i < 10000; i += 400) {
+                tree.width(i);
+                if ($(tree.find('li')[0]).height() < initialHeight) {
+                    break;
+                }
+            }
+
+            if ($(tree.find('li')[0]).height() == initialHeight) {
+                tree.width(initialWidth);
+            }
+
+            tree.css("margin-bottom", ($(tree.find('li')[0]).height() + 100));
+        });
+    </script>
+</html>

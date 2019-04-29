@@ -1,0 +1,15 @@
+<li>
+    <div class="white">
+        {{ node }}<br />
+        {% for formula in formulas %}
+        {{ formula }}<br />
+        {% endfor %}
+    </div>
+    {% if children|length > 0 %}
+    <ul>
+        {% for child in children %}
+            {{ child }}
+        {% endfor %}
+    </ul>
+    {% endif %}
+</li>
